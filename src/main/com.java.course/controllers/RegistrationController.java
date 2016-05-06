@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
  * @author Yulia
  * @since 05.05.2016.
  */
-@WebServlet(urlPatterns = "/registration")
+@WebServlet(urlPatterns = "/index")
 public class RegistrationController extends HttpServlet{
-    private static String INSERT = "/registration.jsp";
+    private static String INSERT = "/index.jsp";
     private UserDAO dao;
 
     /**

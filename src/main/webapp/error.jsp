@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error Page</title>
 </head>
 <body>
-
+Invalid username and/or password, please try
+<a href='<%= response.encodeURL("login.html") %>'>again</a>.
 </body>
 </html>
