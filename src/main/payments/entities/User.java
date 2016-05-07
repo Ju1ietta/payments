@@ -1,4 +1,4 @@
-package main.com.java.course.entities;
+package main.payments.entities;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;

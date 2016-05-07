@@ -1,4 +1,4 @@
-package main.com.java.course.entities;
+package main.payments.entities;
 
 public enum TypeCard {
     VISA,

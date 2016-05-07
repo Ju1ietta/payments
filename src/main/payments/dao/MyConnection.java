@@ -1,4 +1,4 @@
-package main.com.web.course.dao;
+package main.payments.dao;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;

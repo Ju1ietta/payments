@@ -11,7 +11,7 @@
     <title>Error Page</title>
 </head>
 <body>
-Invalid username and/or password, please try
-<a href='<%= response.encodeURL("login.html") %>'>again</a>.
+    <div> Invalid username and/or password, please try </div>
+    <a href='<%= response.encodeURL("login.html") %>'>again</a>.
 </body>
 </html>

@@ -1,6 +1,7 @@
-package main.com.java.course.controllers;
+package main.payments.controllers;
 
-import main.com.java.course.dao.UserDAO;
+
+import main.payments.dao.UserDAO;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
