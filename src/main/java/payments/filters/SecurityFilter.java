@@ -1,4 +1,4 @@
-package main.payments.filters;
+package payments.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

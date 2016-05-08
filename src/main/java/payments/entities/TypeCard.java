@@ -1,4 +1,4 @@
-package main.payments.entities;
+package payments.entities;
 
 public enum TypeCard {
     VISA,

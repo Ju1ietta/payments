@@ -1,7 +1,8 @@
-package main.payments.controllers;
+package payments.controllers;
 
 
-import main.payments.dao.UserDAO;
+import payments.dao.UserDAO;
+import payments.dao.daoImpl.UserDAOImpl;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +18,12 @@ public class RegistrationController extends HttpServlet{
     private UserDAO dao;
 
     /**
-     * Конструктор создает объект класса UserDAO для отправки запросов в БД
+     * Конструктор создает объект класса UserDAOImpl для отправки запросов в БД
      * @see UserDAO
      */
     public RegistrationController() {
         super();
-        dao = new UserDAO();
+        dao = new UserDAOImpl();
     }
 
 }

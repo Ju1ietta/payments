@@ -1,4 +1,4 @@
-package main.com.java.course.entities;
+package payments.entities;
 
 public enum UserStatus {
     ACTIVE,

@@ -1,8 +1,13 @@
-package main.payments.entities;
+package payments.entities;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import sun.util.resources.LocaleData;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+//import java.time.LocalDate;
+//import java.time.ZoneId;
 
 public final class User {
 
@@ -11,15 +16,18 @@ public final class User {
     private String name;
     private String surname;
     private String password;
-    private LocaleData dob;
-    private UserRole role;
+    private Date dob;
+    private String role;
 
-    public User(String eMail, String name, String surname, String password, LocaleData dob) {
-        this.eMail = eMail;
-        this.name = name;
-        this.surname = surname;
-        this.password = password;
-        this.dob = dob;
+    public User(ResultSet resultSet) throws SQLException {
+        setId(resultSet.getInt(1));
+        seteMail(resultSet.getString(2));
+        setName(resultSet.getString(3));
+        setSurname(resultSet.getString(4));
+        setPassword(resultSet.getString(5));
+//        setDob(resultSet.getDate(6).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        setDob(resultSet.getDate(6));
+        setRole(resultSet.getString(7));
     }
     public User(){
     }
@@ -44,7 +52,7 @@ public final class User {
         return password;
     }
 
-    public LocaleData getDob() {
+    public Date getDob() {
         return dob;
     }
 
@@ -68,15 +76,15 @@ public final class User {
         this.password = password;
     }
 
-    public void setDob(LocaleData dob) {
+    public void setDob(java.sql.Date dob) {
         this.dob = dob;
     }
 
-    public UserRole getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

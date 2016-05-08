@@ -6,21 +6,20 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>payments Maven Webapp</name>
-  <url>http://maven.apache.org</url>
 
+  <properties>
+    <java.version>1.7</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.12</junit.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.38</version>
-    </dependency>
 
     <dependency>
       <groupId>commons-lang</groupId>
@@ -48,16 +47,28 @@
       <version>1.2.17</version>
     </dependency>
   </dependencies>
+
   <build>
     <finalName>payments</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/webapp</directory>
+        <excludes>
+          <exclude>META-INF/context.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-          <encoding>UTF-8</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerVersion>${java.version}</compilerVersion>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
 
@@ -66,7 +77,19 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>
         <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <!--<webResources>-->
+            <!--<resource>-->
+              <!--<filtering>false</filtering>-->
+              <!--<directory>src/main/resources</directory>-->
+              <!--<includes>-->
+                <!--<include>src/main/webapp/META-INF/context.xml</include>-->
+                <!--<include>**/web.xml</include>-->
+                <!--<include>**/*.css</include>-->
+              <!--</includes>-->
+            <!--</resource>-->
+          <!--</webResources>-->
+          <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+          <webXml>${project.basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
         </configuration>
       </plugin>
     </plugins>
