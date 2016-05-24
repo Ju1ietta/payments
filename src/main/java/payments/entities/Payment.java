@@ -2,21 +2,23 @@ package payments.entities;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import sun.util.resources.LocaleData;
+
+import java.util.Date;
 
 public final class Payment {
     private Integer id;
     private Integer accountId;
-    private LocaleData date;
+    private Date date;
     private double sum;
 
-    public Payment(Integer id, Integer accountId, LocaleData date, double sum) {
+    public Payment(Integer id, Integer accountId, Date date, double sum) {
         this.id = id;
         this.accountId = accountId;
         this.date = date;
         this.sum = sum;
     }
-    public Payment(){
+
+    public Payment() {
     }
 
     public Integer getId() {
@@ -35,11 +37,11 @@ public final class Payment {
         this.accountId = accountId;
     }
 
-    public LocaleData getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocaleData date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

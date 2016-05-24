@@ -2,7 +2,8 @@ package payments.entities;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import sun.util.resources.LocaleData;
+
+import java.util.Date;
 
 public final class CreditCard {
     private Integer id;
@@ -10,11 +11,11 @@ public final class CreditCard {
     private Integer userId;
     private Integer number;
     private Integer csv;
-    private LocaleData dateFrom;
-    private LocaleData dateTo;
+    private Date    dateFrom;
+    private Date    dateTo;
     private TypeCard type;
 
-    public CreditCard(Integer id, Integer accountId, Integer userId, Integer number, Integer csv, LocaleData dateFrom, LocaleData dateTo, TypeCard type) {
+    public CreditCard(Integer id, Integer accountId, Integer userId, Integer number, Integer csv, Date dateFrom, Date dateTo, TypeCard type) {
         this.id = id;
         this.accountId = accountId;
         this.userId = userId;
@@ -66,19 +67,19 @@ public final class CreditCard {
         this.csv = csv;
     }
 
-    public LocaleData getDateFrom() {
+    public Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(LocaleData dateFrom) {
+    public void setDateFrom(Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public LocaleData getDateTo() {
+    public Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(LocaleData dateTo) {
+    public void setDateTo(Date dateTo) {
         this.dateTo = dateTo;
     }
 

@@ -29,11 +29,19 @@
         </form-login-config>
     </login-config>
 
+    <servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>payments.controllers.Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet</servlet-name>
+        <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
     <!-- Define example application events listeners -->
-    <!--<listener>-->
-        <!--<listener-class>main.payments.listener.ContextListener</listener-class>-->
-    <!--</listener>-->
-    <!--<listener>-->
-        <!--<listener-class>main.payments.listener.SessionListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>payments.listener.ContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>payments.listener.SessionListener</listener-class>
+    </listener>
 </web-app>
