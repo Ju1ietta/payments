@@ -9,7 +9,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
     </welcome-file-list>
 
     <resource-ref>
@@ -24,19 +24,27 @@
         <auth-method>FORM</auth-method>
         <realm-name>Authentication</realm-name>
         <form-login-config>
-            <form-login-page>/index.jsp</form-login-page>
-            <form-error-page>/jsp/error.jsp</form-error-page>
+            <form-login-page>/WEB-INF/jsp/login.jsp</form-login-page>
+            <form-error-page>/WEB-INF/jsp/error.jsp</form-error-page>
         </form-login-config>
     </login-config>
 
-    <servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>payments.controllers.Servlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/controller</url-pattern>
-    </servlet-mapping>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>secured</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>ADMIN</role-name>
+    </security-role>
+
     <!-- Define example application events listeners -->
     <listener>
         <listener-class>payments.listener.ContextListener</listener-class>

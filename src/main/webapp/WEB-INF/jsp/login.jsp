@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <title>Login Page</title>
 </head>
@@ -17,22 +17,22 @@
 <div id="wrapper">
     <div class="user-icon"></div>
     <div class="pass-icon"></div>
-<br><br>
-<form name="login-form" class="login-form" action="" method="post">
-    <div class="header">
-        <h1>Authorization</h1>
-        <span>Please enter your login information to access into your personal account. </span>
-    </div>
-    <br>
-    <div class="content">
-        <input name="username" type="text" class="input username" value="username" onfocus="this.value=''" />
-        <input name="password" type="password" class="input password" value="password" onfocus="this.value=''" />
-    </div>
-    <div class="footer">
-        <input type="submit" name="submit" value="Sign in" class="button" />
-        <input type="submit" name="submit" value="Sign up" class="register" />
-    </div>
-</form>
+    <br><br>
+    <form name="login-form" class="login-form" action="login" method="post">
+        <div class="header">
+            <h1>Authorization</h1>
+            <span>Please enter your login information to access into your personal account. </span>
+        </div>
+        <br>
+        <div class="content">
+            <input name="j_username" type="text" class="input username" value="username"  onfocus="this.value=''" />
+            <input name="j_password" type="password" class="input password" value="password" onfocus="this.value=''" />
+        </div>
+        <div class="footer">
+            <input type="submit" name="signIn" value="Sign in" class="button" />
+            <input type="submit" name="registration" value="Sign up" class="register" />
+        </div>
+    </form>
 </div>
 <div class="gradient"></div>
 

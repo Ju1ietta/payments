@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,11 +17,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+@WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 
     private String message;
-    DataSource dataSource = null;
+    private DataSource dataSource = null;
 
     public void init() throws ServletException {
 
@@ -59,16 +60,15 @@ public class Servlet extends HttpServlet {
         try {
             connection = dataSource.getConnection();
             statement = connection.createStatement();
-            String sql = "SELECT * FROM users WHERE id=1";
+            String sql = "SELECT * FROM users WHERE id=2";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 User user = new User(resultSet);
-                out.print("id " + user.getId() + "<br>");
-                out.print("Name " + user.getName() + "<br>");
-                out.print("Surname " + user.getSurname() + "<br>");
-                out.print("E-mail " + user.geteMail() + "<br>");
-                out.print("Role " + user.getRole() + "<br>");
-                out.print("Dob " + user.getDob() + "<br>");
+                out.print("id "       + user.getId() + "<br>");
+                out.print("Name "     + user.getName() + "<br>");
+                out.print("Surname "  + user.getSurname() + "<br>");
+                out.print("E-mail "   + user.geteMail() + "<br>");
+                out.print("Dob "      + user.getDob() + "<br>");
                 out.print("Password " + user.getPassword() + "<br>");
             }
             resultSet.close();
