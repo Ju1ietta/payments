@@ -3,6 +3,8 @@ package payments.entities;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public final class Payment {
@@ -11,11 +13,11 @@ public final class Payment {
     private Date date;
     private double sum;
 
-    public Payment(Integer id, Integer accountId, Date date, double sum) {
-        this.id = id;
-        this.accountId = accountId;
-        this.date = date;
-        this.sum = sum;
+    public Payment(ResultSet resultSet) throws SQLException {
+        setId(resultSet.getInt(1));
+        setAccountId(resultSet.getInt(2));
+        setDate(resultSet.getDate(3));
+        setSum(resultSet.getDouble(4));
     }
 
     public Payment() {

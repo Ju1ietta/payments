@@ -3,21 +3,24 @@ package payments.entities;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public final class BankAccount {
     private Integer id;
     private Integer cardId;
     private Integer paymentId;
     private Integer number;
-    private double amount;
+    private Double amount;
     private UserStatus status;
 
-    public BankAccount(Integer id, Integer cardId, Integer paymentId, Integer number, double amount, UserStatus status) {
-        this.id = id;
-        this.cardId = cardId;
-        this.paymentId = paymentId;
-        this.number = number;
-        this.amount = amount;
-        this.status = status;
+    public BankAccount(ResultSet resultSet) throws SQLException{
+        setId(resultSet.getInt(1));
+        setCardId(resultSet.getInt(2));
+        setPaymentId(resultSet.getInt(3));
+        setNumber(resultSet.getInt(4));
+        setStatus(UserStatus.valueOf(resultSet.getString(5)));
+        setAmount(resultSet.getDouble(6));
     }
     public BankAccount(){
     }
@@ -52,6 +55,14 @@ public final class BankAccount {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 
     public double getAmount() {

@@ -17,7 +17,7 @@ public final class User {
     private String surname;
     private String password;
     private Date dob;
-    private String role;
+    private UserRole role;
 
     public User(ResultSet resultSet) throws SQLException {
         setId(resultSet.getInt(1));
@@ -27,7 +27,7 @@ public final class User {
         setPassword(resultSet.getString(5));
 //        setDob(resultSet.getDate(6).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         setDob(resultSet.getDate(6));
-        setRole(resultSet.getString(7));
+        setRole(UserRole.valueOf(resultSet.getString(7)));
     }
     public User(){
     }
@@ -80,11 +80,11 @@ public final class User {
         this.dob = dob;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 

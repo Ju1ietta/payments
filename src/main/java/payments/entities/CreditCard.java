@@ -3,6 +3,8 @@ package payments.entities;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public final class CreditCard {
@@ -15,15 +17,15 @@ public final class CreditCard {
     private Date    dateTo;
     private TypeCard type;
 
-    public CreditCard(Integer id, Integer accountId, Integer userId, Integer number, Integer csv, Date dateFrom, Date dateTo, TypeCard type) {
-        this.id = id;
-        this.accountId = accountId;
-        this.userId = userId;
-        this.number = number;
-        this.csv = csv;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
-        this.type = type;
+    public CreditCard(ResultSet resultSet) throws SQLException{
+        setId(resultSet.getInt(1));
+        setAccountId(resultSet.getInt(2));
+        setUserId(resultSet.getInt(3));
+        setNumber(resultSet.getInt(4));
+        setType(TypeCard.valueOf(resultSet.getString(5)));
+        setCsv(resultSet.getInt(6));
+        setDateFrom(resultSet.getDate(7));
+        setDateTo(resultSet.getDate(8));
     }
     public CreditCard(){
     }
