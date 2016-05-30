@@ -1,13 +1,8 @@
-package payments.entities;
+package payments.beans;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
-public final class User {
+public final class UserBean {
 
     private Integer id;
     private String eMail;
@@ -16,17 +11,6 @@ public final class User {
     private String password;
     private Date dob;
     private String role;
-
-    public User(ResultSet resultSet) throws SQLException {
-        setId(resultSet.getInt(1));
-        seteMail(resultSet.getString(2));
-        setName(resultSet.getString(3));
-        setSurname(resultSet.getString(4));
-        setPassword(resultSet.getString(5));
-        setDob(resultSet.getDate(6));
-    }
-    public User(){
-    }
 
     public Integer getId() {
         return id;
@@ -82,30 +66,6 @@ public final class User {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        return new EqualsBuilder()
-                .append(id, user.id)
-                .append(eMail, user.eMail)
-                .append(password, user.password)
-                .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(id)
-                .append(eMail)
-                .append(password)
-                .toHashCode();
     }
 
     @Override

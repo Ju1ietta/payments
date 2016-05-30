@@ -6,7 +6,7 @@ import payments.common.Queries;
 import payments.dao.UserDAO;
 import payments.dao.daoFactoryImpl.MysqlDAOFactory;
 import payments.entities.User;
-import payments.exceptions.dbExceptions.DBException;
+import payments.exceptions.DBException;
 import payments.managers.ConnectionManager;
 import payments.utilities.LogUtility;
 

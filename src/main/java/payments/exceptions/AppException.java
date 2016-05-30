@@ -1,4 +1,4 @@
-package exceptions;
+package payments.exceptions;
 
 
 public class AppException extends Exception {

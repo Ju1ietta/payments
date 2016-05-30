@@ -4,7 +4,7 @@ package payments.dao.daoFactoryImpl;
 import payments.common.Messages;
 import payments.dao.DAOFactory;
 import payments.dao.daoImpl.UserDAOImpl;
-import payments.exceptions.dbExceptions.DBException;
+import payments.exceptions.DBException;
 import payments.utilities.LogUtility;
 
 import javax.naming.Context;

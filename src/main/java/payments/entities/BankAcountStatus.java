@@ -1,6 +1,6 @@
 package payments.entities;
 
-public enum UserStatus {
+public enum BankAcountStatus {
     ACTIVE,
     BLOCKED
 }

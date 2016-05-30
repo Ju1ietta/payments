@@ -12,14 +12,14 @@ public final class BankAccount {
     private Integer paymentId;
     private Integer number;
     private Double amount;
-    private UserStatus status;
+    private BankAcountStatus status;
 
     public BankAccount(ResultSet resultSet) throws SQLException{
         setId(resultSet.getInt(1));
         setCardId(resultSet.getInt(2));
         setPaymentId(resultSet.getInt(3));
         setNumber(resultSet.getInt(4));
-        setStatus(UserStatus.valueOf(resultSet.getString(5)));
+        setStatus(BankAcountStatus.valueOf(resultSet.getString(5)));
         setAmount(resultSet.getDouble(6));
     }
     public BankAccount(){
@@ -57,11 +57,11 @@ public final class BankAccount {
         this.number = number;
     }
 
-    public UserStatus getStatus() {
+    public BankAcountStatus getStatus() {
         return status;
     }
 
-    public void setStatus(UserStatus status) {
+    public void setStatus(BankAcountStatus status) {
         this.status = status;
     }
 

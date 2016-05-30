@@ -1,6 +1,6 @@
 package payments.commands;
 
-import exceptions.AppException;
+import payments.exceptions.AppException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

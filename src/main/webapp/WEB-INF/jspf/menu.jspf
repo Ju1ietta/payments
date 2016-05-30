@@ -1,0 +1,63 @@
+<%--=========================================================================== 
+Menu
+===========================================================================--%>
+<c:choose>
+	  <%--=========================================================================== 
+      This way we define the ADMIN MENU. 
+      ===========================================================================--%>
+			<c:when test="${clientbean.role == 'admin'}">
+		<%-- <a href="controller?command=adminListCards"><ct:i18n propertyKey="header.Admin_card_list"/></a> &nbsp; --%>	
+		<!--Admin_account_list  -->
+		<form action="controller" method="post" >
+       <input type="hidden" name="command" value="adminListAccounts">
+        <input class="menu_button" type="submit" value="<ct:i18n propertyKey="header.Admin_account_list"/>" class="submit">
+        </form>
+        <%-- 
+		<a href="controller?command=adminListAccounts"><ct:i18n propertyKey="header.Admin_account_list"/></a> &nbsp;
+		 --%>
+		<!-- Admin_users_list -->
+		<form action="controller" method="post" >
+       <input type="hidden" name="command" value="adminListUsers">
+        <input class="menu_button" type="submit" value="<ct:i18n propertyKey="header.Admin_users_list"/>" class="submit">
+        </form>
+        <%-- 
+		<a href="controller?command=adminListUsers"><ct:i18n propertyKey="header.Admin_users_list"/></a>
+		  --%>
+		 	</c:when>
+
+
+	  <%--=========================================================================== 
+      This way we define the CLIENT MENU.
+      ===========================================================================--%>
+			<c:when test="${clientbean.role == 'client'}">
+	<%-- <a href="controller?command=clientListCards"><ct:i18n propertyKey="header.Client_card_list"/></a> &nbsp; --%>			
+	<!-- Client_account_list -->
+	<form action="controller" method="post" >
+       <input type="hidden" name="command" value="clientListAccounts">
+        <input class="menu_button" type="submit" value="<ct:i18n propertyKey="header.Client_account_list"/>" class="submit">
+        </form>
+        <%-- 
+	    <a href="controller?command=clientListAccounts"><ct:i18n propertyKey="header.Client_account_list"/></a> &nbsp;
+	 --%>
+	<!-- Client_prepared_payments -->	
+	<form action="controller" method="post" >
+       <input type="hidden" name="command" value="clientPreparedPayments">
+        <input class="menu_button" type="submit" value="<ct:i18n propertyKey="header.Client_prepared_payments"/>" class="submit">
+        </form>
+	<%-- 
+		<a href="controller?command=clientPreparedPayments"><ct:i18n propertyKey="header.Client_prepared_payments"/></a> 
+	 --%>
+	 <!-- Client_sent_payments -->	
+	 <form action="controller" method="post" >
+       <input type="hidden" name="command" value="clientSentPayments">
+        <input class="menu_button" type="submit" value="<ct:i18n propertyKey="header.Client_sent_payments"/>" class="submit">
+        </form>
+	 <%-- 
+	 	<a href="controller?command=clientSentPayments"><ct:i18n propertyKey="header.Client_sent_payments"/></a> 
+		 	 --%>
+		 	</c:when>
+		</c:choose>	
+	
+	
+
+<%--=======================================================================--%>
